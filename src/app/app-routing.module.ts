@@ -10,7 +10,7 @@ const routes: Routes = [
     component: SportComponent,
   },
   {
-    path: `${RoutingConstants.SPORT}/:sportId`,
+    path: `${RoutingConstants.SPORT}/:sportId/${RoutingConstants.SPORT_GROUPS}`,
     component: SportGroupComponent,
   },
 ];

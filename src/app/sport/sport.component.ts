@@ -18,6 +18,10 @@ export class SportComponent implements OnInit {
   ngOnInit(): void {}
 
   goToSport(sport: Sport): void {
-    this.router.navigate([RoutingConstants.SPORT, sport.Id]);
+    this.router.navigate([
+      RoutingConstants.SPORT,
+      sport.Id,
+      RoutingConstants.SPORT_GROUPS,
+    ]);
   }
 }
