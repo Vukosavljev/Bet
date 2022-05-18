@@ -21,7 +21,7 @@ export interface Event {
   GroupOrder: number;
 }
 
-export interface SportGroup {
+export interface League {
   Id: number;
   Name: string;
   Order: number;

@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Sport, SportGroup } from '../models/sport.model';
+import { Sport, League } from '../models/sport.model';
 
 export const loadSports = createAction('[Sports] Load Sports');
 export const loadSportsSuccess = createAction(
@@ -11,12 +11,12 @@ export const loadSportsFailure = createAction(
   props<{ error: string }>()
 );
 
-export const loadSportGroups = createAction('[Sports Groups] Load Sports');
-export const loadSportGroupsSuccess = createAction(
-  '[Sports Groups] Load Sports Success',
-  props<{ sportGroup: SportGroup[] }>()
+export const loadLeagues = createAction('[Leagues] Load Leagues');
+export const loadLeaguesSuccess = createAction(
+  '[Leagues] Load Leagues Success',
+  props<{ leagues: League[] }>()
 );
-export const loadSportGroupsFailure = createAction(
-  '[Sports Groups] Load Sports Failure',
+export const loadLeaguesFailure = createAction(
+  '[Leagues] Load Leagues Failure',
   props<{ error: string }>()
 );

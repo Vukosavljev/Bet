@@ -11,8 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SportComponent } from './sport/sport.component';
 import { SportEffect } from './store/effects';
-import { reducer } from './store/reducer';
+import { sportReducer, useFeatureKeySport } from './store/sport-reducer';
 import { SportGroupComponent } from './sport-group/sport-group.component';
+import { leagueReducer, useFeatureKeyLeague } from './store/league-reducer';
 
 @NgModule({
   declarations: [AppComponent, SportComponent, SportGroupComponent],
@@ -22,7 +23,10 @@ import { SportGroupComponent } from './sport-group/sport-group.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatExpansionModule,
-    StoreModule.forRoot({ sport: reducer }),
+    StoreModule.forRoot({
+      [useFeatureKeySport]: sportReducer,
+      [useFeatureKeyLeague]: leagueReducer,
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
