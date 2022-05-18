@@ -29,5 +29,5 @@ export interface League {
   Sport: string;
   SportId: number;
   Antepost: number;
-  Event: Event;
+  Events: Event[];
 }

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RoutingConstants } from './constants/routing';
-import { SportGroupComponent } from './sport-group/sport-group.component';
-import { SportComponent } from './sport/sport.component';
+import { LeagueComponent } from './components/league/league.component';
+import { SportComponent } from './components/sport/sport.component';
 
 const routes: Routes = [
   {
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: `${RoutingConstants.SPORT}/:sportId/${RoutingConstants.SPORT_GROUPS}`,
-    component: SportGroupComponent,
+    component: LeagueComponent,
   },
 ];
 

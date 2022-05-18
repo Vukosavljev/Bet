@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { RoutingConstants } from '../constants/routing';
-import { Sport } from '../models/sport.model';
-import { AppState } from '../store';
-import { selectAllSports } from '../store/selectors';
+import { RoutingConstants } from '../../constants/routing';
+import { Sport } from '../../models/sport.model';
+import { AppState } from '../../store';
+import { selectAllSports } from '../../store/selectors';
 
 @Component({
   selector: 'app-sport',

@@ -1,12 +1,21 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { AppState, SportState } from '.';
+import { AppState, LeagueState, SportState } from '.';
+import { useFeatureKeyLeague } from './league-reducer';
 import { useFeatureKeySport } from './sport-reducer';
 
-export const selectSport = createFeatureSelector<AppState, SportState>(
+export const selectSports = createFeatureSelector<AppState, SportState>(
   useFeatureKeySport
+);
+export const selectLeagues = createFeatureSelector<AppState, LeagueState>(
+  useFeatureKeyLeague
 );
 
 export const selectAllSports = createSelector(
-  selectSport,
+  selectSports,
   (state: SportState) => state.sports
+);
+
+export const selectAllLeagues = createSelector(
+  selectLeagues,
+  (state: LeagueState) => state.leagues
 );

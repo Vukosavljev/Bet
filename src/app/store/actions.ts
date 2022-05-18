@@ -11,7 +11,10 @@ export const loadSportsFailure = createAction(
   props<{ error: string }>()
 );
 
-export const loadLeagues = createAction('[Leagues] Load Leagues');
+export const loadLeagues = createAction(
+  '[Leagues] Load Leagues',
+  props<{ sportId: string }>()
+);
 export const loadLeaguesSuccess = createAction(
   '[Leagues] Load Leagues Success',
   props<{ leagues: League[] }>()
