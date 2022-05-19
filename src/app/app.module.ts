@@ -9,15 +9,22 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SportComponent } from './components/sport/sport.component';
+import { SportListComponent } from './components/sport-list/sport-list.component';
 import { SportEffect } from './store/effects';
 import { sportReducer, useFeatureKeySport } from './store/sport-reducer';
-import { LeagueComponent } from './components/league/league.component';
+import { LeagueListComponent } from './components/league-list/league-list.component';
 import { leagueReducer, useFeatureKeyLeague } from './store/league-reducer';
-import { TournamentComponent } from './components/tournament/tournament.component';
+import { EventListComponent } from './components/event-list/event-list.component';
+import { SubEventListComponent } from './components/sub-event-list/sub-event-list.component';
 
 @NgModule({
-  declarations: [AppComponent, SportComponent, LeagueComponent, TournamentComponent],
+  declarations: [
+    AppComponent,
+    SportListComponent,
+    LeagueListComponent,
+    EventListComponent,
+    SubEventListComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

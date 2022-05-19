@@ -2,17 +2,17 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { filter, map, Subscription } from 'rxjs';
-import { League } from '../../models/sport.model';
+import { League } from '../../models';
 import { AppState } from '../../store';
 import { loadLeagues } from '../../store/actions';
 import { selectAllLeagues } from '../../store/selectors';
 
 @Component({
-  selector: 'app-league',
-  templateUrl: './league.component.html',
-  styleUrls: ['./league.component.scss'],
+  selector: 'app-league-list',
+  templateUrl: './league-list.component.html',
+  styleUrls: ['./league-list.component.scss'],
 })
-export class LeagueComponent implements OnInit, OnDestroy {
+export class LeagueListComponent implements OnInit, OnDestroy {
   private subscriptions = new Subscription();
   allLeagues$ = this.store.select(selectAllLeagues);
   leagueId!: number | null;

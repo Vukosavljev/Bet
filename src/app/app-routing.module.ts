@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RoutingConstants } from './constants/routing';
-import { LeagueComponent } from './components/league/league.component';
-import { SportComponent } from './components/sport/sport.component';
+import { LeagueListComponent } from './components/league-list/league-list.component';
+import { SportListComponent } from './components/sport-list/sport-list.component';
 
 const routes: Routes = [
   {
     path: RoutingConstants.ROOT,
-    component: SportComponent,
+    component: SportListComponent,
   },
   {
     path: `${RoutingConstants.SPORT}/:sportId/${RoutingConstants.SPORT_GROUPS}`,
-    component: LeagueComponent,
+    component: LeagueListComponent,
   },
 ];
 

@@ -1,6 +1,6 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { HttpStatus } from '../constants/http-status';
-import { Sport, League } from '../models/sport.model';
+import { Sport, League } from '../models';
 
 export interface SportState {
   sports: Sport[];

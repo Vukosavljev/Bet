@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Sport, League } from '../models/sport.model';
+import { Sport, League } from '../models';
 
 export const loadSports = createAction('[Sports] Load Sports');
 export const loadSportsSuccess = createAction(

@@ -7,11 +7,11 @@ import { AppState } from '../../store';
 import { selectAllSports } from '../../store/selectors';
 
 @Component({
-  selector: 'app-sport',
-  templateUrl: './sport.component.html',
-  styleUrls: ['./sport.component.scss'],
+  selector: 'app-sport-list',
+  templateUrl: './sport-list.component.html',
+  styleUrls: ['./sport-list.component.scss'],
 })
-export class SportComponent implements OnInit {
+export class SportListComponent implements OnInit {
   allSports$ = this.store.select(selectAllSports);
   constructor(private store: Store<AppState>, private router: Router) {}
 

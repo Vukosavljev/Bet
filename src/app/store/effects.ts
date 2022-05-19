@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { catchError, from, map, of, switchMap } from 'rxjs';
-import { SportService } from '../components/sport/sport.service';
+import { RestService } from '../rest.service';
 import {
   loadLeagues,
   loadLeaguesFailure,
@@ -16,14 +16,14 @@ export class SportEffect {
   constructor(
     private actions$: Actions,
     private store: Store,
-    private sportService: SportService
+    private restApi: RestService
   ) {}
 
   loadSports$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadSports),
       switchMap(() => {
-        return from(this.sportService.getSports()).pipe(
+        return from(this.restApi.getSports()).pipe(
           map((sports) => loadSportsSuccess({ sports })),
           catchError((error) => of(loadSportsFailure({ error })))
         );
@@ -35,7 +35,7 @@ export class SportEffect {
     this.actions$.pipe(
       ofType(loadLeagues),
       switchMap(({ sportId }) => {
-        return from(this.sportService.getLeagues(sportId)).pipe(
+        return from(this.restApi.getLeagues(sportId)).pipe(
           map((leagues) => loadLeaguesSuccess({ leagues })),
           catchError((error) => of(loadLeaguesFailure({ error })))
         );

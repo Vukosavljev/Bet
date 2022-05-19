@@ -1,11 +1,12 @@
-<mat-accordion *ngFor="let tournament of events">
+<mat-accordion *ngFor="let event of events">
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title class="accordion-title">
-                <h4>{{ tournament.Name }}</h4>
+                <h4>{{ event.Name }}</h4>
+                <span>{{ event.NumSubevents }}</span>
             </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <!-- <app-tournament [events]="league.Events"></app-tournament> -->
+        <app-sub-event-list [event]="event"></app-sub-event-list>
     </mat-expansion-panel>
 </mat-accordion>
