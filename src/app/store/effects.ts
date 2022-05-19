@@ -4,6 +4,9 @@ import { Store } from '@ngrx/store';
 import { catchError, from, map, of, switchMap } from 'rxjs';
 import { RestService } from '../rest.service';
 import {
+  loadEvents,
+  loadEventsFailure,
+  loadEventsSuccess,
   loadLeagues,
   loadLeaguesFailure,
   loadLeaguesSuccess,
@@ -38,6 +41,18 @@ export class SportEffect {
         return from(this.restApi.getLeagues(sportId)).pipe(
           map((leagues) => loadLeaguesSuccess({ leagues })),
           catchError((error) => of(loadLeaguesFailure({ error })))
+        );
+      })
+    )
+  );
+
+  loadEvents$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadEvents),
+      switchMap(({ leagueId }) => {
+        return from(this.restApi.getEvents(leagueId)).pipe(
+          map((event) => loadEventsSuccess({ event })),
+          catchError((error) => of(loadEventsFailure({ error })))
         );
       })
     )

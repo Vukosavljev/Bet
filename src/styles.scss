@@ -1,21 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html,
 body {
     height: 100%;
 }
 
 body {
-    margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .main-title {
     padding: 10px;
+    background-color: rgb(168, 158, 145);
+    margin: 0;
 }
 
 .accordion-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.main-panel {
+    background-color: rgb(143, 164, 190);
+}
+
+.mat-expansion-panel-body {
+    padding: 0 !important;
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Sport, League, FullEvent } from './models';
+import { map, Observable } from 'rxjs';
+import { Sport, League, Event } from './models';
 
 @Injectable({ providedIn: 'root' })
 export class RestService {
@@ -18,10 +18,10 @@ export class RestService {
     );
   }
 
-  getSubEvents(eventId: string): Observable<FullEvent[]> {
-    // Here we should pass eventId to request in real scenario
-    return this.http.get<FullEvent[]>(
-      '../../assets/jsons/3. subevents-mondiali-2022.json'
-    );
+  getEvents(leagueId: string): Observable<Event> {
+    // Here we should pass leagueId to request in real scenario
+    return this.http
+      .get<Event[]>('../../assets/jsons/3. subevents-mondiali-2022.json')
+      .pipe(map((response: Event[]) => response[0]));
   }
 }

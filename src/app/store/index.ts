@@ -1,6 +1,5 @@
-import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { HttpStatus } from '../constants/http-status';
-import { Sport, League } from '../models';
+import { Event, League, Sport } from '../models';
 
 export interface SportState {
   sports: Sport[];
@@ -12,7 +11,14 @@ export interface LeagueState {
   status: HttpStatus;
   error: string | null;
 }
+export interface EventState {
+  events: Event[]; //{ [sportId: string]: Event[] };
+  status: HttpStatus;
+  error: string | null;
+}
+
 export interface AppState {
   sport: SportState;
   league: LeagueState;
+  event: EventState;
 }

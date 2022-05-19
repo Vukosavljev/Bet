@@ -1,0 +1,27 @@
+.panel-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .panel-title {
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+        h5 {
+            margin: 0;
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        span {
+            font-size: 12px;
+            margin-right: 5px;
+        }
+    }
+    .odd-wrapper {
+        display: flex;
+        width: 100%;
+        .odd {
+            width: 100%;
+            margin: 4px;
+        }
+    }
+}

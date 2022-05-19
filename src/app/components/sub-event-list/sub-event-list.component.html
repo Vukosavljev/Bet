@@ -1,1 +1,19 @@
-<p>sub-event-list works!</p>
+<mat-accordion *ngFor="let event of subEventList">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+            <mat-panel-title class="panel-title-wrapper">
+                <h5 class="panel-title">
+                    <span> {{ event.StartTimeUtc | date: "shortTime" }} </span> {{ event.Name }}
+                </h5>
+
+                <div class="odd-wrapper">
+                    <app-odd class="odd" *ngFor="let odd of event.Markets[0].Odds" [odd]="odd"></app-odd>
+                </div>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <!-- <ng-template matExpansionPanelContent>
+            <app-sub-event-list [event]="event"></app-sub-event-list>
+        </ng-template> -->
+    </mat-expansion-panel>
+</mat-accordion>

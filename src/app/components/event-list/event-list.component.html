@@ -7,6 +7,8 @@
             </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <app-sub-event-list [event]="event"></app-sub-event-list>
+        <ng-template matExpansionPanelContent>
+            <app-sub-event-list [event]="event"></app-sub-event-list>
+        </ng-template>
     </mat-expansion-panel>
 </mat-accordion>

@@ -16,6 +16,8 @@ import { LeagueListComponent } from './components/league-list/league-list.compon
 import { leagueReducer, useFeatureKeyLeague } from './store/league-reducer';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { SubEventListComponent } from './components/sub-event-list/sub-event-list.component';
+import { eventReducer, useFeatureKeyEvent } from './store/event.reducer';
+import { OddComponent } from './components/shared/odd/odd.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { SubEventListComponent } from './components/sub-event-list/sub-event-lis
     LeagueListComponent,
     EventListComponent,
     SubEventListComponent,
+    OddComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { SubEventListComponent } from './components/sub-event-list/sub-event-lis
     StoreModule.forRoot({
       [useFeatureKeySport]: sportReducer,
       [useFeatureKeyLeague]: leagueReducer,
+      [useFeatureKeyEvent]: eventReducer,
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

@@ -1,8 +1,8 @@
 <section>
-    <h2 class="main-title">Sport</h2>
+    <h2 class="main-title sport-title">Sport</h2>
 
     <mat-accordion *ngFor="let sport of allSports$ | async" (click)="goToSport(sport)">
-        <mat-expansion-panel>
+        <mat-expansion-panel class="main-panel">
             <mat-expansion-panel-header>
                 <mat-panel-title class="accordion-title">
                     <h4>{{ sport.Name }}</h4>

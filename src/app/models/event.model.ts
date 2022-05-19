@@ -12,7 +12,7 @@ export interface BasisEvent {
   GroupOrder?: number;
 }
 
-export interface FullEvent extends BasisEvent {
+export interface Event extends BasisEvent {
   Playabilities: [number];
   Subevents: SubEvent[];
 }

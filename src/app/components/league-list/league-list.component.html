@@ -1,8 +1,8 @@
 <section>
-    <h2 class="main-title">Leagues</h2>
+    <h2 class="main-title league-title">Leagues</h2>
 
     <mat-accordion>
-        <mat-expansion-panel *ngFor="let league of allLeagues$ | async">
+        <mat-expansion-panel class="main-panel" *ngFor="let league of allLeagues$ | async">
             <!--  (afterExpand)="addParams(league)" (closed)="removeParams()" [expanded]="leagueId === league.Id" -->
             <mat-expansion-panel-header>
                 <mat-panel-title class="accordion-title">
