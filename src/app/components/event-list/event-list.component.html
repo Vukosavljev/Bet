@@ -1,14 +1,1 @@
-<mat-accordion *ngFor="let event of events">
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <mat-panel-title class="accordion-title">
-                <h4>{{ event.Name }}</h4>
-                <span>{{ event.NumSubevents }}</span>
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-
-        <ng-template matExpansionPanelContent>
-            <app-sub-event-list [event]="event"></app-sub-event-list>
-        </ng-template>
-    </mat-expansion-panel>
-</mat-accordion>
+<app-page-link *ngFor="let event of events" (click)="goToEvents(event)" [entity]="{ name: event.Name, numberOfSubEvents: event.NumSubevents }"></app-page-link>

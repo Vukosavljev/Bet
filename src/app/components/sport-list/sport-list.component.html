@@ -1,14 +1,5 @@
 <section>
     <h2 class="main-title sport-title">Sport</h2>
 
-    <mat-accordion *ngFor="let sport of allSports$ | async" (click)="goToSport(sport)">
-        <mat-expansion-panel class="main-panel">
-            <mat-expansion-panel-header>
-                <mat-panel-title class="accordion-title">
-                    <h4>{{ sport.Name }}</h4>
-                    <span> {{ sport.NumSubevents }}</span>
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-        </mat-expansion-panel>
-    </mat-accordion>
+    <app-page-link *ngFor="let sport of allSports$ | async" (click)="goToSport(sport)" [entity]="{ name: sport.Name, numberOfSubEvents: sport.NumSubevents }"></app-page-link>
 </section>

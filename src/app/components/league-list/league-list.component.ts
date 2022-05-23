@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { filter, map, Subscription } from 'rxjs';
@@ -12,22 +12,16 @@ import { selectAllLeagues } from '../../store/selectors';
   templateUrl: './league-list.component.html',
   styleUrls: ['./league-list.component.scss'],
 })
-export class LeagueListComponent implements OnInit, OnDestroy {
+export class LeagueListComponent implements OnDestroy {
   private subscriptions = new Subscription();
   allLeagues$ = this.store.select(selectAllLeagues);
   leagueId!: number | null;
-  // leagueIdParam$ = this.route.queryParams.pipe(
-  //   filter((params) => params['leagueId']),
-  //   map((params) => params['leagueId'])
-  // );
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private store: Store<AppState>
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     this.subscriptions = this.route.params
       .pipe(
         filter((params) => params['sportId']),
@@ -36,17 +30,6 @@ export class LeagueListComponent implements OnInit, OnDestroy {
       .subscribe((sportId) => {
         this.store.dispatch(loadLeagues({ sportId }));
       });
-
-    // this.route.queryParams
-    //   .pipe(
-    //     filter((params) => params['leagueId']),
-    //     map((params) => params['leagueId'])
-    //   )
-    //   .subscribe((id) => {
-    //     console.log(id);
-
-    //     this.leagueId = id;
-    //   });
   }
 
   addParams(league: League): void {

@@ -1,11 +1,22 @@
-.panel-title-wrapper {
+.panel-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.panel-content-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    .panel-title {
+    padding: 10px;
+    .event-date {
+        margin-top: 15px;
+    }
+    .panel-content {
         display: flex;
         align-items: center;
-        margin-top: 15px;
         h5 {
             margin: 0;
             margin-left: 5px;

@@ -1,19 +1,25 @@
-<mat-accordion *ngFor="let event of subEventList">
-    <mat-expansion-panel>
+<mat-accordion>
+    <mat-expansion-panel class="main-panel">
         <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
-            <mat-panel-title class="panel-title-wrapper">
-                <h5 class="panel-title">
-                    <span> {{ event.StartTimeUtc | date: "shortTime" }} </span> {{ event.Name }}
-                </h5>
-
-                <div class="odd-wrapper">
-                    <app-odd class="odd" *ngFor="let odd of event.Markets[0].Odds" [odd]="odd"></app-odd>
+            <mat-panel-title>
+                <div class="panel-title">
+                    <h3>{{ event?.Name }}</h3>
+                    <span *ngIf="event?.NumSubevents"> {{ event?.NumSubevents }}</span>
                 </div>
             </mat-panel-title>
         </mat-expansion-panel-header>
+        <div *ngFor="let subEvent of event?.Subevents" class="panel-content-wrapper">
+            <p *ngIf="showDate(subEvent)" class="event-date">
+                {{ subEvent.StartTimeUtc | date: "fullDate" }}
+            </p>
+            <app-page-link (click)="goToMatch(subEvent)" [entity]="{
+          name: formatName(subEvent.StartTimeUtc, event),
+          numberOfSubEvents: event.NumSubevents
+        }"></app-page-link>
 
-        <!-- <ng-template matExpansionPanelContent>
-            <app-sub-event-list [event]="event"></app-sub-event-list>
-        </ng-template> -->
+            <div class="odd-wrapper">
+                <app-odd class="odd" *ngFor="let odd of subEvent.Markets[0].Odds" [odd]="odd"></app-odd>
+            </div>
+        </div>
     </mat-expansion-panel>
 </mat-accordion>

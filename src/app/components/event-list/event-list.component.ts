@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BasisEvent } from '../../models';
 
 @Component({
@@ -9,7 +10,11 @@ import { BasisEvent } from '../../models';
 export class EventListComponent implements OnInit {
   @Input() events: BasisEvent[] = [];
 
-  constructor() {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {}
+
+  goToEvents(league: BasisEvent): void {
+    this.router.navigate([league.Id], { relativeTo: this.route });
+  }
 }
